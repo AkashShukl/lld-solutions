@@ -20,6 +20,11 @@ class Slot:
         self.vehicle = None
 
 
+'''
+Singleton class for Parking as we will need only one parking instance throughout the application.
+'''
+
+
 class Parking:
     _instance = None
 
