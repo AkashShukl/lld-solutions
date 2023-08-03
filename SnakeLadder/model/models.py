@@ -1,36 +1,5 @@
 import random
 
-class Dice:
-    def __init__(self, count: int):
-        self.diceCount = count
-        self.consecutiveSixCount = 0
-        self.maxAllowedConsecutiveSixes = 3
-
-    def rollDice(self) -> int:
-        return random.randint(1, 6)
-
-    def resetConsecutiveSixesCount(self):
-        self.consecutiveSixCount = 0
-
-    def rollWithLimit(self) -> int:
-        moves = self.rollDice()
-        if moves != 6:
-            total_moves = self.consecutiveSixCount * 6 + moves
-            self.resetConsecutiveSixesCount()
-            return total_moves
-        else:
-            self.consecutiveSixCount += 1
-            if self.consecutiveSixCount == self.maxAllowedConsecutiveSixes:
-                self.resetConsecutiveSixesCount()
-                return 0
-            return self.rollWithLimit()
-
-    def multiDiceRoll(self):
-        total_moves = 0
-        for n in range(self.diceCount):
-            total_moves += self.rollDice()
-        return total_moves
-
 
 
 

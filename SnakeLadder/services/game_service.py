@@ -1,17 +1,18 @@
 
 # game_service.py
 
-from model.models import Board, Dice
+from model.models import Board
+from model.dice import Dice, SingleDiceRollStrategy
 
 class SnakeAndLadder:
 
-    def __init__(self, blockCount, snakes, ladders, players) -> None:
+    def __init__(self, blockCount, snakes, ladders, players, diceRollStrategy) -> None:
         self.blockCount = blockCount
         self.snakes = snakes
         self.ladders = ladders
         self.players = players
         self.board = Board( blockCount, ladders, snakes )
-        self.dice = Dice(1)
+        self.dice = Dice(1, diceRollStrategy)
         self.winner = None
 
 
@@ -25,7 +26,7 @@ class SnakeAndLadder:
 
             for player in self.players:
 
-                moves = self.dice.rollDice()
+                moves = self.dice.roll()
 
                 prev = player.position.number
 
