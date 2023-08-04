@@ -1,8 +1,3 @@
-import random
-
-
-
-
 class Player:
     def __init__(self, name: str, id: int):
         self.name = name
@@ -12,6 +7,7 @@ class Player:
     def move(self, pos: int):
         self.position = pos
 
+
 class Snake:
     def __init__(self, head: int, tail: int):
         self.head = head
@@ -19,7 +15,7 @@ class Snake:
 
 
 class Ladder:
-    def __init__(self, fromBlock : int, toBlock: int):
+    def __init__(self, fromBlock: int, toBlock: int):
         self.fromBlock = fromBlock
         self.toBlock = toBlock
 
@@ -46,9 +42,3 @@ class Board:
 
         for snake in snakes:
             self.blocks[snake.head].place_snake(snake)
-
-
-
-
-
-

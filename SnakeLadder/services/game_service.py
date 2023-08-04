@@ -2,7 +2,8 @@
 # game_service.py
 
 from model.models import Board
-from model.dice import Dice, SingleDiceRollStrategy
+from model.dice import Dice
+
 
 class SnakeAndLadder:
 
@@ -11,11 +12,9 @@ class SnakeAndLadder:
         self.snakes = snakes
         self.ladders = ladders
         self.players = players
-        self.board = Board( blockCount, ladders, snakes )
+        self.board = Board(blockCount, ladders, snakes)
         self.dice = Dice(1, diceRollStrategy)
         self.winner = None
-
-
 
     def announceWinner(self):
         print("Winner ::: ", self.winner.name, self.winner.id)
@@ -40,14 +39,10 @@ class SnakeAndLadder:
                     if player.position.snake:
                         player.position = self.board.blocks[player.position.snake.tail]
 
-                    print(str(player.name) + " rolled a " + str(moves) + " and moved from " + str(prev) + " to " + str(player.position.number))
+                    print(str(player.name) + " rolled a " + str(moves) +
+                          " and moved from " + str(prev) + " to " + str(player.position.number))
 
                     if player.position.number == self.blockCount:
                         self.winner = player
                         break
         self.announceWinner()
-
-
-
-
-

@@ -5,9 +5,11 @@ class DiceRollStrategy:
     def roll(self):
         pass
 
+
 class SingleDiceRollStrategy:
     def roll(self) -> int:
         return random.randint(1, 6)
+
 
 class ConsecutiveSixesDiceRollStrategy(DiceRollStrategy):
     def __init__(self, max_allowed_consecutive_sixes=3):
@@ -38,6 +40,3 @@ class Dice:
         for _ in range(self.diceCount):
             total_moves += self.strategy.roll()
         return total_moves
-
-
-
