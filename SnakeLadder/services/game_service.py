@@ -6,8 +6,11 @@ from model.dice import Dice
 
 
 class SnakeAndLadder:
+    _instance = None
 
     def __init__(self, blockCount, snakes, ladders, players, diceRollStrategy) -> None:
+        if SnakeAndLadder._instance is not None:
+            raise Exception("SnakeAndLadder is already initialized")
         self.blockCount = blockCount
         self.snakes = snakes
         self.ladders = ladders
@@ -15,6 +18,14 @@ class SnakeAndLadder:
         self.board = Board(blockCount, ladders, snakes)
         self.dice = Dice(1, diceRollStrategy)
         self.winner = None
+
+        SnakeAndLadder._instance = self
+
+    @staticmethod
+    def get_instance(*data):
+        if SnakeAndLadder._instance is None:
+            SnakeAndLadder(*data)
+        return SnakeAndLadder._instance
 
     def announceWinner(self):
         print("Winner ::: ", self.winner.name, self.winner.id)

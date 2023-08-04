@@ -30,6 +30,6 @@ if __name__ == '__main__':
 
     diceRollStrategy = SingleDiceRollStrategy()
 
-    snl = SnakeAndLadder(TOTAL_BLOCKS, snakes, ladders,
-                         players, diceRollStrategy)
+    snl = SnakeAndLadder.get_instance(TOTAL_BLOCKS, snakes, ladders,
+                                      players, diceRollStrategy)
     snl.startGame()

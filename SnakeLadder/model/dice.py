@@ -6,7 +6,7 @@ class DiceRollStrategy:
         pass
 
 
-class SingleDiceRollStrategy:
+class SingleDiceRollStrategy(DiceRollStrategy):
     def roll(self) -> int:
         return random.randint(1, 6)
 
