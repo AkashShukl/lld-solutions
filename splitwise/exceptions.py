@@ -1,0 +1,2 @@
+class UnexpectedSplitStrategy(Exception):
+    pass
